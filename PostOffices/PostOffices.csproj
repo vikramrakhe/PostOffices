@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="IPostOfficeDataSource.cs" />
     <Compile Include="PostOfficeDataFile.cs" />
-    <Compile Include="PostOfficeNameCompleter.cs" />
+    <Compile Include="SimplePostOfficeNameCompleter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

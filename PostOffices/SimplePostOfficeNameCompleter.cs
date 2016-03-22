@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace PostOffices
 {
-    public class PostOfficeNameCompleter
+    public class SimplePostOfficeNameCompleter
     {
         private readonly List<string> m_TestData;
 
-        public PostOfficeNameCompleter(IEnumerable<string> testData)
+        public SimplePostOfficeNameCompleter(IEnumerable<string> testData)
         {
             m_TestData = testData.ToList();
         }
