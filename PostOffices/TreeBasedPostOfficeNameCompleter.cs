@@ -10,7 +10,7 @@ namespace PostOffices
 
         public IEnumerable<string> SuggestCompletedNames(string startOfName)
         {
-            return new List<string>(){"a"};
+            return new List<string>();
         }
     }
 }
