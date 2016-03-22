@@ -13,13 +13,7 @@ namespace PostOffices
             var currentNode = this;
             foreach (var c in word)
             {
-                DictionaryNode childNode;
-                if (!currentNode.m_Nodes.TryGetValue(c, out childNode))
-                {
-                    childNode = new DictionaryNode();
-                    currentNode.m_Nodes.Add(c, childNode);
-                }
-                currentNode = childNode;
+                currentNode = currentNode.FindNodeOrAdd(c);
             }
             currentNode.IsWord = true;
         }
@@ -29,8 +23,8 @@ namespace PostOffices
             var currentNode = this;
             foreach (var c in wordFragment)
             {
-                DictionaryNode childNode;
-                if (!currentNode.m_Nodes.TryGetValue(c, out childNode)) return null;
+                var childNode = currentNode.FindNodeOrNull(c);
+                if (childNode == null) return null;
                 currentNode = childNode;
             }
             return currentNode;
@@ -39,6 +33,24 @@ namespace PostOffices
         public IEnumerable<string> Words()
         {
             return Words(string.Empty);
+        }
+
+        private DictionaryNode FindNodeOrNull(char c)
+        {
+            DictionaryNode childNode;
+            m_Nodes.TryGetValue(c, out childNode);
+            return childNode;
+        }
+
+        private DictionaryNode FindNodeOrAdd(char c)
+        {
+            DictionaryNode childNode;
+            if (!m_Nodes.TryGetValue(c, out childNode))
+            {
+                childNode = new DictionaryNode();
+                m_Nodes.Add(c, childNode);
+            }
+            return childNode;
         }
 
         private IEnumerable<string> Words(string wordFragment)
