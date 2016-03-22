@@ -17,7 +17,8 @@ namespace PostOffices
             return startOfName.Length == 0
                 ? new List<string>()
                 : m_TestData.Where(name => name.StartsWith(startOfName))
-                    .Select(name => name.Substring(startOfName.Length));
+                    .Select(name => name.Substring(startOfName.Length))
+                    .Distinct();
         }
     }
 }
