@@ -46,6 +46,7 @@
     <Compile Include="PostOfficeDataFileTests.cs" />
     <Compile Include="SimplePostOfficeNameCompleterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeBasedPostOfficeNameCompleterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
