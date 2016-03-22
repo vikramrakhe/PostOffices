@@ -41,5 +41,15 @@ namespace Tests
             Assert.That(words, Is.EquivalentTo(new []{"an"}));
         }
 
+        [Test]
+        public void GivenDictionaryNodeWithBluesAndBlues_WhenWordsCalled_ShouldReturnBothWords()
+        {
+            var root = new DictionaryNode();
+            root.Add("blues");
+            root.Add("blue");
+            var words = root.Words();
+            Assert.That(words, Is.EquivalentTo(new[] { "blue", "blues" }));
+        }
+
     }
 }
