@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DictionaryNodeTests.cs" />
+    <Compile Include="DictionaryTests.cs" />
     <Compile Include="PerformanceComparisonTests.cs" />
     <Compile Include="PostOfficeDataFileTests.cs" />
     <Compile Include="SimplePostOfficeNameCompleterTests.cs" />

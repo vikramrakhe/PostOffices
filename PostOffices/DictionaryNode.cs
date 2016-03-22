@@ -8,18 +8,6 @@ namespace PostOffices
         private readonly Dictionary<char, DictionaryNode> m_Nodes = new Dictionary<char, DictionaryNode>();
         public bool IsWord { private get; set; }
 
-        public DictionaryNode Find(string wordFragment)
-        {
-            var currentNode = this;
-            foreach (var c in wordFragment)
-            {
-                var childNode = currentNode.FindNodeOrNull(c);
-                if (childNode == null) return null;
-                currentNode = childNode;
-            }
-            return currentNode;
-        }
-
         public DictionaryNode FindNodeOrNull(char c)
         {
             DictionaryNode childNode;
