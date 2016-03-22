@@ -6,6 +6,8 @@ namespace Tests
     public class DictionaryNode
     {
         private readonly Dictionary<char, DictionaryNode> m_Nodes = new Dictionary<char, DictionaryNode>();
+        public bool IsWord { get; set; }
+
         public void Add(string word)
         {
             var currentNode = this;
@@ -19,12 +21,13 @@ namespace Tests
                 }
                 currentNode = childNode;
             }
+            currentNode.IsWord = true;
         }
 
-        public DictionaryNode Find(string word)
+        public DictionaryNode Find(string wordFragment)
         {
             var currentNode = this;
-            foreach (var c in word)
+            foreach (var c in wordFragment)
             {
                 DictionaryNode childNode;
                 if (!currentNode.m_Nodes.TryGetValue(c, out childNode)) return null;
@@ -38,10 +41,10 @@ namespace Tests
             return Words(string.Empty);
         }
 
-        private IEnumerable<string> Words(string wordStem)
+        private IEnumerable<string> Words(string wordFragment)
         {
-            if (m_Nodes.Count == 0) return new List<string>{wordStem};
-            return m_Nodes.SelectMany(pair => pair.Value.Words(wordStem + pair.Key));
+            var myWord = IsWord ? new List<string>{wordFragment} : new List<string>();
+            return myWord.Concat(m_Nodes.SelectMany(pair => pair.Value.Words(wordFragment + pair.Key)));
         }
     }
 }
