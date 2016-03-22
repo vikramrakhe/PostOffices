@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework.Constraints;
 
 namespace Tests
@@ -35,7 +36,13 @@ namespace Tests
 
         public IEnumerable<string> Words()
         {
-            return new List<string>();
+            return Words(string.Empty);
+        }
+
+        private IEnumerable<string> Words(string wordStem)
+        {
+            if (m_Nodes.Count == 0) return new List<string>{wordStem};
+            return m_Nodes.SelectMany(pair => pair.Value.Words(wordStem + pair.Key));
         }
     }
 }
