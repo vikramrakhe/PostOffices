@@ -3,62 +3,62 @@ using PostOffices;
 
 namespace Tests
 {
-    public class DictionaryNodeTests
+    public class DictionaryTests
     {
         [Test]
-        public void GivenDictionaryNodeWithNodeAdded_WhenFindCalled_ShouldReturnNotNull()
+        public void GivenDictionaryWithNodeAdded_WhenFindCalled_ShouldReturnNotNull()
         {
-            var root = new DictionaryNode();
-            root.Add("a");
-            var aNode = root.Find("a");
+            var dictionary = new TreeBasedDictionary();
+            dictionary.Add("a");
+            var aNode = dictionary.Find("a");
             Assert.That(aNode, Is.Not.Null);
         }
 
         [Test]
         public void GivenEmptyDictionaryNode_WhenFindCalled_ShouldReturnNull()
         {
-            var root = new DictionaryNode();
-            var aNode = root.Find("a");
+            var dictionary = new TreeBasedDictionary();
+            var aNode = dictionary.Find("a");
             Assert.That(aNode, Is.Null);
         }
 
         [Test]
-        public void GivenDictionaryNodeWithNodeAddedForTwoCharWord_WhenFindCalledOnceOnEachChar_ShouldReturnSameNodeAsFindCalledOnceOnWholeWord()
+        public void GivenDictionaryWithNodeAddedForTwoCharWord_WhenFindCalledOnceOnEachChar_ShouldReturnSameNodeAsFindCalledOnceOnWholeWord()
         {
-            var root = new DictionaryNode();
-            root.Add("an");
-            var anNodeReachedBySingleCall = root.Find("an");
-            var anNodeReachedyTwoCalls = root.Find("a").Find("n");
+            var dictionary = new TreeBasedDictionary();
+            dictionary.Add("an");
+            var anNodeReachedBySingleCall = dictionary.Find("an");
+            var anNodeReachedyTwoCalls = dictionary.Find("a").Find("n");
 
             Assert.That(anNodeReachedBySingleCall, Is.EqualTo(anNodeReachedyTwoCalls));
         }
 
         [Test]
-        public void GivenDictionaryNodeWithNodeAddedForWord_WhenWordsCalled_ShouldReturnTheWord()
+        public void GivenDictionaryWithNodeAddedForWord_WhenWordsCalled_ShouldReturnTheWord()
         {
-            var root = new DictionaryNode();
-            root.Add("an");
-            var words = root.Words();
+            var dictionary = new TreeBasedDictionary();
+            dictionary.Add("an");
+            var words = dictionary.Words();
             Assert.That(words, Is.EquivalentTo(new []{"an"}));
         }
 
         [Test]
-        public void GivenDictionaryNodeWithBluesAndBlues_WhenWordsCalled_ShouldReturnBothWords()
+        public void GivenDictionaryWithBluesAndBlues_WhenWordsCalled_ShouldReturnBothWords()
         {
-            var root = new DictionaryNode();
-            root.Add("blues");
-            root.Add("blue");
-            var words = root.Words();
+            var dictionary = new TreeBasedDictionary();
+            dictionary.Add("blues");
+            dictionary.Add("blue");
+            var words = dictionary.Words();
             Assert.That(words, Is.EquivalentTo(new[] { "blue", "blues" }));
         }
 
         [Test]
-        public void GivenDictionaryNodeWithGrayAndGreen_WhenWordsCalledBeginningWithGre_ShouldReturnOnly_en()
+        public void GivenDictionaryWithGrayAndGreen_WhenWordsCalledBeginningWithGre_ShouldReturnOnly_en()
         {
-            var root = new DictionaryNode();
-            root.Add("gray");
-            root.Add("green");
-            var node = root.Find("gre");
+            var dictionary = new TreeBasedDictionary();
+            dictionary.Add("gray");
+            dictionary.Add("green");
+            var node = dictionary.Find("gre");
             var words = node.Words();
             Assert.That(words, Is.EquivalentTo(new[] { "en" }));
         }

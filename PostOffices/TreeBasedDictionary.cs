@@ -11,10 +11,14 @@ namespace PostOffices
             m_Root.Add(word);
         }
 
-        public IEnumerable<string> CompleteWordsBeginningWith(string startOfWord)
+        public DictionaryNode Find(string startOfName)
         {
-            var nodeAtStartOfWord = m_Root.Find(startOfWord);
-            return nodeAtStartOfWord == null ? new List<string>() : nodeAtStartOfWord.Words();
+            return m_Root.Find(startOfName);
+        }
+
+        public IEnumerable<string> Words()
+        {
+            return m_Root.Words();
         }
     }
 }

@@ -16,7 +16,9 @@ namespace PostOffices
 
         public IEnumerable<string> SuggestCompletedNames(string startOfName)
         {
-            return startOfName.Length == 0 ? new List<string>() : m_Dictionary.CompleteWordsBeginningWith(startOfName);
+            if (startOfName.Length == 0) return new List<string>();
+            var nodeAtStartOfWord = m_Dictionary.Find(startOfName);
+            return nodeAtStartOfWord == null ? new List<string>() : nodeAtStartOfWord.Words();
         }
     }
 }
