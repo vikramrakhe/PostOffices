@@ -51,5 +51,15 @@ namespace Tests
             Assert.That(words, Is.EquivalentTo(new[] { "blue", "blues" }));
         }
 
+        [Test]
+        public void GivenDictionaryNodeWithGrayAndGreen_WhenWordsCalledBeginningWithGre_ShouldReturnOnly_en()
+        {
+            var root = new DictionaryNode();
+            root.Add("gray");
+            root.Add("green");
+            var node = root.Find("gre");
+            var words = node.Words();
+            Assert.That(words, Is.EquivalentTo(new[] { "en" }));
+        }
     }
 }
