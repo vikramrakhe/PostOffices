@@ -6,7 +6,7 @@ namespace Tests
     public class DictionaryNode
     {
         private readonly Dictionary<char, DictionaryNode> m_Nodes = new Dictionary<char, DictionaryNode>();
-        public bool IsWord { get; set; }
+        private bool IsWord { get; set; }
 
         public void Add(string word)
         {
