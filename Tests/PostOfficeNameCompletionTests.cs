@@ -20,5 +20,14 @@ namespace Tests
             var completions = completer.SuggestCompletedNames(string.Empty);
             Assert.That(completions, Is.EquivalentTo(new List<string>()));
         }
+
+        [Test]
+        public void GivenAllPOsStartWithAchal_WhenCompletionForAchal_ShouldReturnAllPostOffices()
+        {
+            var testData = new List<string> {s_AchalPur_RJ, s_AchalPurCity, s_Achalu};
+            var completer = new PostOfficeNameCompleter(testData);
+            var completions = completer.SuggestCompletedNames("Achal");
+            Assert.That(completions, Is.EquivalentTo(new [] {"pur B.O", "pur City S.O", "u"}));
+        }
     }
 }
