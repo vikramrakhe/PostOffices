@@ -5,12 +5,20 @@ namespace Tests
     public class DictionaryNodeTests
     {
         [Test]
-        public void GivenDictionaryNode_WhenAddCalled_ShouldFindNode()
+        public void GivenDictionaryNodeWithNodeAdded_WhenFindCalled_ShouldReturnNotNull()
         {
             var root = new DictionaryNode();
             root.Add("a");
             var aNode = root.Find("a");
             Assert.That(aNode, Is.Not.Null);
+        }
+
+        [Test]
+        public void GivenEnmptyDictionaryNode_WhenFindCalled_ShouldReturnNull()
+        {
+            var root = new DictionaryNode();
+            var aNode = root.Find("a");
+            Assert.That(aNode, Is.Null);
         }
     }
 }
