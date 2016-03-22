@@ -4,7 +4,7 @@ using PostOffices;
 
 namespace Tests
 {
-    public class PostOfficeNameCompletionTests
+    public class SimplePostOfficeNameCompletionTests
     {
         private const string AchalPur = "Achalpur B.O";
         private const string AchalPurCity = "Achalpur City S.O";
@@ -36,6 +36,5 @@ namespace Tests
             var completions = completer.SuggestCompletedNames("Achal");
             Assert.That(completions, Is.EquivalentTo(new[] { "pur B.O" }));
         }
-
     }
 }
