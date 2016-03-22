@@ -4,7 +4,7 @@ namespace PostOffices
 {
     public class TreeBasedPostOfficeNameCompleter
     {
-        readonly TreeBasedDictionary m_Dictionary = new TreeBasedDictionary();
+        private readonly TreeBasedDictionary m_Dictionary = new TreeBasedDictionary();
 
         public TreeBasedPostOfficeNameCompleter(IEnumerable<string> postOffices)
         {
