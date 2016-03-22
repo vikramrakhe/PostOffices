@@ -6,9 +6,12 @@ namespace PostOffices
     {
         readonly TreeBasedDictionary m_Dictionary = new TreeBasedDictionary();
 
-        public TreeBasedPostOfficeNameCompleter(List<string> postOffices)
+        public TreeBasedPostOfficeNameCompleter(IEnumerable<string> postOffices)
         {
-            postOffices.ForEach(name => m_Dictionary.Add(name));
+            foreach (var postOffice in postOffices)
+            {
+                m_Dictionary.Add(postOffice);
+            }
         }
 
         public IEnumerable<string> SuggestCompletedNames(string startOfName)
