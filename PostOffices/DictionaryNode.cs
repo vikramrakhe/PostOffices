@@ -6,17 +6,7 @@ namespace PostOffices
     public class DictionaryNode
     {
         private readonly Dictionary<char, DictionaryNode> m_Nodes = new Dictionary<char, DictionaryNode>();
-        private bool IsWord { get; set; }
-
-        public void Add(string word)
-        {
-            var currentNode = this;
-            foreach (var c in word)
-            {
-                currentNode = currentNode.FindNodeOrAdd(c);
-            }
-            currentNode.IsWord = true;
-        }
+        public bool IsWord { private get; set; }
 
         public DictionaryNode Find(string wordFragment)
         {
@@ -30,19 +20,14 @@ namespace PostOffices
             return currentNode;
         }
 
-        public IEnumerable<string> Words()
-        {
-            return Words(string.Empty);
-        }
-
-        private DictionaryNode FindNodeOrNull(char c)
+        public DictionaryNode FindNodeOrNull(char c)
         {
             DictionaryNode childNode;
             m_Nodes.TryGetValue(c, out childNode);
             return childNode;
         }
 
-        private DictionaryNode FindNodeOrAdd(char c)
+        public DictionaryNode FindNodeOrAdd(char c)
         {
             DictionaryNode childNode;
             if (!m_Nodes.TryGetValue(c, out childNode))
@@ -53,7 +38,7 @@ namespace PostOffices
             return childNode;
         }
 
-        private IEnumerable<string> Words(string wordFragment)
+        public IEnumerable<string> Words(string wordFragment)
         {
             var myWord = IsWord ? new List<string>{wordFragment} : new List<string>();
             return myWord.Concat(m_Nodes.SelectMany(pair => pair.Value.Words(wordFragment + pair.Key)));

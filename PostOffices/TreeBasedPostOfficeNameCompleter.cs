@@ -18,7 +18,7 @@ namespace PostOffices
         {
             if (startOfName.Length == 0) return new List<string>();
             var nodeAtStartOfWord = m_Dictionary.Find(startOfName);
-            return nodeAtStartOfWord == null ? new List<string>() : nodeAtStartOfWord.Words();
+            return nodeAtStartOfWord == null ? new List<string>() : nodeAtStartOfWord.Words(string.Empty);
         }
     }
 }

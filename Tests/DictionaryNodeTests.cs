@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 using PostOffices;
 
@@ -28,7 +29,7 @@ namespace Tests
             var dictionary = new TreeBasedDictionary();
             dictionary.Add("an");
             var anNodeReachedBySingleCall = dictionary.Find("an");
-            var anNodeReachedyTwoCalls = dictionary.Find("a").Find("n");
+            var anNodeReachedyTwoCalls = dictionary.Find("a").FindNodeOrNull('n');
 
             Assert.That(anNodeReachedBySingleCall, Is.EqualTo(anNodeReachedyTwoCalls));
         }
@@ -59,7 +60,7 @@ namespace Tests
             dictionary.Add("gray");
             dictionary.Add("green");
             var node = dictionary.Find("gre");
-            var words = node.Words();
+            var words = node.Words(string.Empty);
             Assert.That(words, Is.EquivalentTo(new[] { "en" }));
         }
     }

@@ -8,17 +8,29 @@ namespace PostOffices
 
         public void Add(string word)
         {
-            m_Root.Add(word);
+            var currentNode = m_Root;
+            foreach (var c in word)
+            {
+                currentNode = currentNode.FindNodeOrAdd(c);
+            }
+            currentNode.IsWord = true;
         }
 
         public DictionaryNode Find(string startOfName)
         {
-            return m_Root.Find(startOfName);
+            var currentNode = m_Root;
+            foreach (var c in startOfName)
+            {
+                var childNode = currentNode.FindNodeOrNull(c);
+                if (childNode == null) return null;
+                currentNode = childNode;
+            }
+            return currentNode;
         }
 
         public IEnumerable<string> Words()
         {
-            return m_Root.Words();
+            return m_Root.Words(string.Empty);
         }
     }
 }
