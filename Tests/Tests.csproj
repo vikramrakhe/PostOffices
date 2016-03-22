@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DictionaryNode.cs" />
+    <Compile Include="DictionaryNodeTests.cs" />
     <Compile Include="PostOfficeDataFileTests.cs" />
     <Compile Include="SimplePostOfficeNameCompleterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
