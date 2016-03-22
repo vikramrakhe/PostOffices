@@ -14,7 +14,10 @@ namespace PostOffices
 
         public IEnumerable<string> SuggestCompletedNames(string startOfName)
         {
-            return new List<string>();
+            return startOfName.Length == 0
+                ? new List<string>()
+                : m_TestData.Where(name => name.StartsWith(startOfName))
+                    .Select(name => name.Substring(startOfName.Length));
         }
     }
 }
