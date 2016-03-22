@@ -14,7 +14,7 @@ namespace Tests
         }
 
         [Test]
-        public void GivenEnmptyDictionaryNode_WhenFindCalled_ShouldReturnNull()
+        public void GivenEmptyDictionaryNode_WhenFindCalled_ShouldReturnNull()
         {
             var root = new DictionaryNode();
             var aNode = root.Find("a");
