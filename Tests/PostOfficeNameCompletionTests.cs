@@ -4,7 +4,7 @@ using PostOffices;
 
 namespace Tests
 {
-    public class SimplePostOfficeNameCompletionTests
+    public class SimplePostOfficeNameCompleterTests
     {
         private const string AchalPur = "Achalpur B.O";
         private const string AchalPurCity = "Achalpur City S.O";
