@@ -20,7 +20,7 @@ namespace Tests
             var file = new PostOfficeDataFile();
             var postOffices = file.Read();
             var firstPostOffice = postOffices.First();
-            Assert.That(firstPostOffice, Is.EqualTo("(Gandhinagar) Sector 16 S.O"));
+            Assert.That(firstPostOffice, Is.EqualTo("Achalapur B.O"));
         }
     }
 }
