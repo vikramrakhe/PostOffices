@@ -13,5 +13,14 @@ namespace Tests
             var postOffices = file.Read();
             Assert.That(postOffices.Count(), Is.GreaterThan(150000));
         }
+
+        [Test]
+        public void GivenPostOfficeDataFile_WhenReadCalled_FirstItemShouldHaveCorrectName()
+        {
+            var file = new PostOfficeDataFile();
+            var postOffices = file.Read();
+            var firstPostOffice = postOffices.First();
+            Assert.That(firstPostOffice.Name, Is.EqualTo("(Gandhinagar) Sector 16 S.O"));
+        }
     }
 }

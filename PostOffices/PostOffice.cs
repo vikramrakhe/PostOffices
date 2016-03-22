@@ -2,5 +2,6 @@
 {
     public class PostOffice
     {
+        public string Name { get; private set; }
     }
 }
