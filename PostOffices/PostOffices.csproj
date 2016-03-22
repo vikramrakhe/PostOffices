@@ -39,10 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPostOfficeDataSource.cs" />
+    <Compile Include="DictionaryNode.cs" />
     <Compile Include="PostOfficeDataFile.cs" />
     <Compile Include="SimplePostOfficeNameCompleter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeBasedDictionary.cs" />
+    <Compile Include="TreeBasedPostOfficeNameCompleter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="all_india_PO_list_without_APS_offices_ver2.csv">

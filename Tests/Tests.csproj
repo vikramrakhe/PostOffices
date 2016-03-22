@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DictionaryNodeTests.cs" />
+    <Compile Include="PerformanceComparisonTests.cs" />
     <Compile Include="PostOfficeDataFileTests.cs" />
     <Compile Include="SimplePostOfficeNameCompleterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeBasedPostOfficeNameCompleterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

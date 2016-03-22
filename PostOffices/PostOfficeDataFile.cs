@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace PostOffices
 {
-    public class PostOfficeDataFile : IPostOfficeDataSource
+    public class PostOfficeDataFile
     {
         public IEnumerable<string> Read()
         {
