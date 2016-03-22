@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DictionaryNode.cs" />
-    <Compile Include="IPostOfficeDataSource.cs" />
     <Compile Include="PostOfficeDataFile.cs" />
     <Compile Include="SimplePostOfficeNameCompleter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
