@@ -31,5 +31,15 @@ namespace Tests
 
             Assert.That(anNodeReachedBySingleCall, Is.EqualTo(anNodeReachedyTwoCalls));
         }
+
+        [Test]
+        public void GivenDictionaryNodeWithNodeAddedForWord_WhenWordsCalled_ShouldReturnTheWord()
+        {
+            var root = new DictionaryNode();
+            root.Add("an");
+            var words = root.Words();
+            Assert.That(words, Is.EquivalentTo(new []{"an"}));
+        }
+
     }
 }

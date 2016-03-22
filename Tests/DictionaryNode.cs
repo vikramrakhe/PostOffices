@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using NUnit.Framework.Constraints;
 
 namespace Tests
 {
@@ -30,6 +31,11 @@ namespace Tests
                 currentNode = childNode;
             }
             return currentNode;
+        }
+
+        public IEnumerable<string> Words()
+        {
+            return new List<string>();
         }
     }
 }
