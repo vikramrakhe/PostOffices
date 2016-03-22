@@ -20,5 +20,16 @@ namespace Tests
             var aNode = root.Find("a");
             Assert.That(aNode, Is.Null);
         }
+
+        [Test]
+        public void GivenDictionaryNodeWithNodeAddedForTwoCharWord_WhenFindCalledOnceOnEachChar_ShouldReturnSameNodeAsFindCalledOnceOnWholeWord()
+        {
+            var root = new DictionaryNode();
+            root.Add("an");
+            var anNodeReachedBySingleCall = root.Find("an");
+            var anNodeReachedyTwoCalls = root.Find("a").Find("n");
+
+            Assert.That(anNodeReachedBySingleCall, Is.EqualTo(anNodeReachedyTwoCalls));
+        }
     }
 }
