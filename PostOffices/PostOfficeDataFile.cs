@@ -15,7 +15,14 @@ namespace PostOffices
             var directoryName = Path.GetDirectoryName(thisDll);
             var filePath = Path.Combine(directoryName, fileName);
             var lines = File.ReadAllLines(filePath);
-            return lines.Select(line => new PostOffice());
+            return lines.Skip(1).Select(CreatePostOffice);
+        }
+
+        private static PostOffice CreatePostOffice(string line)
+        {
+            var fields = line.Split(',');
+            var name = fields[0];
+            return new PostOffice(name);
         }
     }
 }
