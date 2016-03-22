@@ -11,10 +11,9 @@ namespace PostOffices
         public IEnumerable<PostOffice> Read()
         {
             const string fileName = "all_india_PO_list_without_APS_offices_ver2.csv";
-            var directory = Assembly.GetExecutingAssembly().CodeBase;
-            var x = new Uri(directory);
-            var xx = Path.GetDirectoryName(x.AbsolutePath);
-            var filePath = Path.Combine(xx, fileName);
+            var thisDll = new Uri(Assembly.GetExecutingAssembly().CodeBase).AbsolutePath;
+            var directoryName = Path.GetDirectoryName(thisDll);
+            var filePath = Path.Combine(directoryName, fileName);
             var lines = File.ReadAllLines(filePath);
             return lines.Select(line => new PostOffice());
         }
