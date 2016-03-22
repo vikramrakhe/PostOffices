@@ -39,7 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PostOffice.cs" />
     <Compile Include="PostOfficeDataFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
