@@ -9,7 +9,7 @@ namespace Tests
 
         public DictionaryNode Find(string word)
         {
-            return null;
+            return new DictionaryNode();
         }
     }
 }
