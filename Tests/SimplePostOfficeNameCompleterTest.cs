@@ -25,5 +25,13 @@ namespace Tests
             Assert.DoesNotThrow(() => listOfMatchingOfficeNames.First());
         }
 
+        [Test]
+        public void GivenPostOfficeName_WhenDuplicateDataFound_ShouldReturnUniquePostOffices()
+        {
+            var postOfficefinder = new SimplePostOfficeNameCompleter();
+            var listOfMatchingOfficeNames = postOfficefinder.SuggestCompletedNames("Adukkam B.O");
+            Assert.That(listOfMatchingOfficeNames.Count(), Is.EqualTo(1));
+        }
+
     }
 }
