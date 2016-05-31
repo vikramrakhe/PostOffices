@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PostOffices
 {
@@ -16,10 +9,9 @@ namespace PostOffices
         {
             var file = new PostOfficeDataFile();
             var postOffices = file.Read();
-            var listOfMatchingOfficeNames = from name in postOffices
-                where name.StartsWith(startOfName)
-                select name;
-            listOfMatchingOfficeNames = listOfMatchingOfficeNames.Distinct();
+
+            var listOfMatchingOfficeNames = postOffices.Where(s => s.StartsWith(startOfName)).Distinct().DefaultIfEmpty();
+
             return listOfMatchingOfficeNames.DefaultIfEmpty();
         }
     }
