@@ -20,7 +20,7 @@ namespace PostOffices
                 where name.StartsWith(startOfName)
                 select name;
             
-            return listOfMatchingOfficeNames;
+            return listOfMatchingOfficeNames.DefaultIfEmpty();
         }
     }
 }
