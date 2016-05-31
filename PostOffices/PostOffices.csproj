@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="PostOfficeDataFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimplePostOfficeNameCompleter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="all_india_PO_list_without_APS_offices_ver2.csv">
