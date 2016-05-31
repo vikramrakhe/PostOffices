@@ -14,7 +14,13 @@ namespace PostOffices
     {
         public IEnumerable<string> SuggestCompletedNames(string startOfName)
         {
-            return new List<string>().DefaultIfEmpty();
+            var file = new PostOfficeDataFile();
+            var postOffices = file.Read();
+            var listOfMatchingOfficeNames = from name in postOffices
+                where name.StartsWith(startOfName)
+                select name;
+            
+            return listOfMatchingOfficeNames;
         }
     }
 }
