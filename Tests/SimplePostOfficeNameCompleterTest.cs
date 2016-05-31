@@ -15,6 +15,15 @@ namespace Tests
 
             Assert.That(listOfMatchingOfficeNames.First(), Is.EqualTo("Abusar B.O"));
         }
-        
+
+        [Test]
+        public void GivenPostOfficeName_WhenNoDataFound_ShouldNotThrow()
+        {
+            var postOfficefinder = new SimplePostOfficeNameCompleter();
+            var listOfMatchingOfficeNames = postOfficefinder.SuggestCompletedNames("xyz");
+
+            Assert.DoesNotThrow(() => listOfMatchingOfficeNames.First());
+        }
+
     }
 }
